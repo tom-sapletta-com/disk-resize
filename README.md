@@ -39,11 +39,55 @@ resize2fs /dev/mapper/pve-root
 
 
 ### LVM DATA
+
+
++ [vgdisplay: attribs of volume groups - Linux man page](https://linux.die.net/man/8/vgdisplay)
+display attributes of volume groups 
+```
+vgdisplay
+```
+
+![image](https://github.com/tom-sapletta-com/disk-resize/assets/5669657/b0a0e025-e699-4543-8264-20a45045b3d0)
+
+
+
++ [resize2fs - Linux man page](https://linux.die.net/man/8/resize2fs)
+-f     Forces resize2fs to proceed with the filesystem resize operation, overriding some safety checks which resize2fs normally enforces. 
+
+```
+lvresize -l +100%FREE /dev/pve/data
+resize2fs /dev/mapper/
+resize2fs /dev/mapper/pve-root
+```
+
+```
+e2fsck -fy /dev/nvme0n1p3 
+resize2fs -f /dev/nvme0n1p3
+```
+
 ```
 lvresize -L -5G /dev/pve/root
 resize2fs /dev/mapper/pve-root
 ```
 
+
+## LVM DATA INFO
+
+
+To see the more detail of our VG
+```
+vgdisplay -v
+```
+
+```
+lvdisplay
+```
+
++ [lvdisplay: attribs of logical volume - Linux man page](https://linux.die.net/man/8/lvdisplay)
+Details of Volume Groups  
+```
+lvdisplay
+```
 
 ## another
 
@@ -61,3 +105,6 @@ lvm vgchange -a y
 e2fsck -f /dev/mapper/pve-root
 resize2fs -f /dev/mapper/pve-root 195G
 ```
+
+
+
