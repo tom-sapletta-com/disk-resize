@@ -4,35 +4,6 @@ resize disks sda, nvme0
 
 + [8 Linux 'Parted' Commands to Create, Resize and Rescue Disk Partitions](https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/)
 + [How to Resize LVM Partition in Linux](https://linuxopsys.com/topics/resize-lvm-partition-in-linux)
-+ [Recover From Grub Failure - Proxmox VE](https://pve.proxmox.com/wiki/Recover_From_Grub_Failure)
-
-
-## error: disk `lvmid/8svGLw-BMJO-oHsj-gpkr-iax1-Yy7c-tPb0av/X6aAE9-IkU4-Rdzo-0fJ0-Xy99-Btwq-xSmzDe' not found.
-
-+ [Super Grub2 Disk download | SourceForge.net](https://sourceforge.net/projects/supergrub2/)
-+ [Super Grub2 Disk](https://www.supergrubdisk.org/super-grub2-disk/)
-Use Super-Grub2 to boot:
- 
-- boot from a Super_grub_disk2 rescue iso -> https://www.supergrubdisk.org/
-- An orange colored menu appears
-- Select: "Enable GRUB2's RAID and LVM support" [ENTER]
-- Press ESC when finished to go back to the main menu
-- Select: "Boot manually" [ENTER]
-- Select: "Operating Systems" [ENTER]
-- Scroll down to the second last option: "Linux /boot/vmlinuz-5.xx.xx-x-pve (lvm/pve-root)" [ENTER]
-- Your system will reboot and boots into Proxmox VE as before.
-- Inside Proxmox VE shell: update-grub to repair GRUB2
- 
-the last step (update-grub) threw errors after booting about disks not found
-```
-lvextend -L +1G /dev/pve/root
-lvreduce -L -1G /dev/pve/root
-```
-
-Proxmox VE shell: 
-```
-update-grub
-```
 
 
 ## check partitions
@@ -261,7 +232,36 @@ reboot
 
 # GRUB problem
 
-[Stuck at grub rescue after an update and reboot. Any tips before I reinstall? : r/Proxmox](https://www.reddit.com/r/Proxmox/comments/vy33ho/stuck_at_grub_rescue_after_an_update_and_reboot/)
+## error: disk `lvmid/8svGLw-BMJO-oHsj-gpkr-iax1-Yy7c-tPb0av/X6aAE9-IkU4-Rdzo-0fJ0-Xy99-Btwq-xSmzDe' not found.
++ [Recover From Grub Failure - Proxmox VE](https://pve.proxmox.com/wiki/Recover_From_Grub_Failure)
+
++ [Super Grub2 Disk download | SourceForge.net](https://sourceforge.net/projects/supergrub2/)
++ [Super Grub2 Disk](https://www.supergrubdisk.org/super-grub2-disk/)
+Use Super-Grub2 to boot:
+ 
+- boot from a Super_grub_disk2 rescue iso -> https://www.supergrubdisk.org/
+- An orange colored menu appears
+- Select: "Enable GRUB2's RAID and LVM support" [ENTER]
+- Press ESC when finished to go back to the main menu
+- Select: "Boot manually" [ENTER]
+- Select: "Operating Systems" [ENTER]
+- Scroll down to the second last option: "Linux /boot/vmlinuz-5.xx.xx-x-pve (lvm/pve-root)" [ENTER]
+- Your system will reboot and boots into Proxmox VE as before.
+- Inside Proxmox VE shell: update-grub to repair GRUB2
+ 
+the last step (update-grub) threw errors after booting about disks not found
+```
+lvextend -L +1G /dev/pve/root
+lvreduce -L -1G /dev/pve/root
+```
+
+Proxmox VE shell: 
+```
+update-grub
+```
+
+
+## [Stuck at grub rescue after an update and reboot. Any tips before I reinstall? : r/Proxmox](https://www.reddit.com/r/Proxmox/comments/vy33ho/stuck_at_grub_rescue_after_an_update_and_reboot/)
 
 
 After several tests I no longer get the error.
