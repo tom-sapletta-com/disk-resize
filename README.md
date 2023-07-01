@@ -3,11 +3,12 @@ resize disks sda, nvme0
 
 + [8 Linux 'Parted' Commands to Create, Resize and Rescue Disk Partitions](https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/)
 + [How to Resize LVM Partition in Linux](https://linuxopsys.com/topics/resize-lvm-partition-in-linux)
-
++ [Recover From Grub Failure - Proxmox VE](https://pve.proxmox.com/wiki/Recover_From_Grub_Failure)
 
 error: disk `lvmid/8svGLw-BMJO-oHsj-gpkr-iax1-Yy7c-tPb0av/X6aAE9-IkU4-Rdzo-0fJ0-Xy99-Btwq-xSmzDe' not found.
-	
 
++ [Super Grub2 Disk download | SourceForge.net](https://sourceforge.net/projects/supergrub2/)
++ [Super Grub2 Disk](https://www.supergrubdisk.org/super-grub2-disk/)
 Use Super-Grub2 to boot:
  
 - boot from a Super_grub_disk2 rescue iso -> https://www.supergrubdisk.org/
